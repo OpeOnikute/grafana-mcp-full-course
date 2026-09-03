@@ -1,2 +1,6 @@
 .env
 .env.cloud
+
+.terraform/
+*.lock.hcl
+*.tfstate
