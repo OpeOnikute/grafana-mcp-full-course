@@ -12,3 +12,13 @@ output "public_subnet_ids" {
   description = "Public subnet IDs for load balancers"
   value       = module.vpc.public_subnets
 }
+
+output "cluster_name" {
+  description = "EKS cluster name"
+  value       = module.eks.cluster_name
+}
+
+output "cluster_endpoint" {
+  description = "EKS API endpoint"
+  value       = module.eks.cluster_endpoint
+}

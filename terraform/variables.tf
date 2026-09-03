@@ -21,3 +21,15 @@ variable "availability_zones" {
   type        = list(string)
   default     = ["us-east-1a", "us-east-1b", "us-east-1c"]
 }
+
+variable "cluster_version" {
+  description = "Kubernetes version for EKS (use a version currently in EKS standard support)"
+  type        = string
+  default     = "1.34"
+}
+
+variable "node_instance_type" {
+  description = "EC2 instance type for worker nodes"
+  type        = string
+  default     = "t3.large"
+}
