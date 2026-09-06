@@ -70,3 +70,8 @@ variable "mcp_image" {
 #   description = "Route 53 hosted zone you own, e.g. example.com"
 #   type        = string
 # }
+
+variable "mcp_grafana_token" {
+  description = "Grafana token"
+  type        = string
+}
