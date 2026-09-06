@@ -20,7 +20,7 @@ resource "aws_ecs_task_definition" "mcp" {
     name      = "mcp-grafana"
     image     = var.mcp_image
     essential = true
-    command   = ["-t", "streamable-http", "--address", "0.0.0.0:8000", "--metrics", "--allowed-hosts=*"]
+    command   = ["-t", "streamable-http", "--address", "0.0.0.0:8000", "--disable-write", "--metrics", "--allowed-hosts=*"]
 
     portMappings = [
       { containerPort = 8000, protocol = "tcp" }
