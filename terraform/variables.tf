@@ -46,3 +46,15 @@ variable "deploy_monitoring" {
   type        = bool
   default     = true
 }
+
+variable "mcp_grafana_url" {
+  description = "Override for the Grafana URL the ECS MCP task uses. Leave empty to auto-use the Chapter 4 Grafana LoadBalancer."
+  type        = string
+  default     = ""
+}
+
+variable "mcp_image" {
+  description = "Container image for the MCP server"
+  type        = string
+  default     = "grafana/mcp-grafana:latest"
+}

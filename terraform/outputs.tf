@@ -22,3 +22,18 @@ output "cluster_endpoint" {
   description = "EKS API endpoint"
   value       = module.eks.cluster_endpoint
 }
+
+output "grafana_url" {
+  description = "External Grafana URL (kube-prometheus-stack LoadBalancer)"
+  value       = local.grafana_url
+}
+
+output "mcp_ecs_cluster_name" {
+  description = "ECS cluster running MCP"
+  value       = aws_ecs_cluster.mcp.name
+}
+
+output "mcp_ecs_log_group" {
+  description = "CloudWatch log group for MCP on ECS"
+  value       = aws_cloudwatch_log_group.mcp.name
+}
