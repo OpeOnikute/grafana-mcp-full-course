@@ -33,3 +33,16 @@ variable "node_instance_type" {
   type        = string
   default     = "t3.large"
 }
+
+variable "grafana_admin_password" {
+  description = "Admin password for Grafana"
+  type        = string
+  sensitive   = true
+  default     = "admin12345"
+}
+
+variable "deploy_monitoring" {
+  description = "Deploy Prometheus/Loki/Grafana (lecture 4.4). Requires EKS."
+  type        = bool
+  default     = true
+}
