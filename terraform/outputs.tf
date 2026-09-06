@@ -37,3 +37,13 @@ output "mcp_ecs_log_group" {
   description = "CloudWatch log group for MCP on ECS"
   value       = aws_cloudwatch_log_group.mcp.name
 }
+
+output "mcp_alb_dns_name" {
+  description = "ALB DNS name for MCP"
+  value       = aws_lb.mcp.dns_name
+}
+
+output "mcp_url" {
+  description = "HTTP URL for MCP on the ALB"
+  value       = "http://${aws_lb.mcp.dns_name}"
+}

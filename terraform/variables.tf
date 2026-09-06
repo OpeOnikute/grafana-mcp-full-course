@@ -58,3 +58,15 @@ variable "mcp_image" {
   type        = string
   default     = "grafana/mcp-grafana:latest"
 }
+
+# Just for show -- used only if you uncomment mcp-ecs-dns.tf.
+# Do not declare these until then, or terraform plan will demand values.
+# variable "mcp_domain_name" {
+#   description = "FQDN for the MCP endpoint, e.g. mcp.example.com"
+#   type        = string
+# }
+#
+# variable "mcp_hosted_zone_name" {
+#   description = "Route 53 hosted zone you own, e.g. example.com"
+#   type        = string
+# }

@@ -52,11 +52,11 @@ resource "aws_security_group" "mcp_ecs" {
   vpc_id      = module.vpc.vpc_id
 
   ingress {
-    description = "MCP from the internet"
-    from_port   = 8000
-    to_port     = 8000
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    description     = "MCP from the ALB only"
+    from_port       = 8000
+    to_port         = 8000
+    protocol        = "tcp"
+    security_groups = [aws_security_group.mcp_alb.id]
   }
 
   egress {
@@ -77,6 +77,14 @@ resource "aws_ecs_service" "mcp" {
   network_configuration {
     subnets          = module.vpc.public_subnets
     security_groups  = [aws_security_group.mcp_ecs.id]
-    assign_public_ip = true
+    assign_public_ip = false
   }
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.mcp.arn
+    container_name   = "mcp-grafana"
+    container_port   = 8000
+  }
+
+  depends_on = [aws_lb_listener.mcp_http]
 }
